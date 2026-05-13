@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цветочный магазин</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>От всей души</h1>
+    <div class="cart-info">Корзина: <span id="cartCount">0</span> товаров | <span id="cartTotal">0</span> ₽</div>
+</header>
+
+<main>
+    <!-- АКЦИИ -->
+    <section id="promotions">
+        <h2>Акции</h2>
+       <div class="promo-container">
+    <div class="promo-card">
+        <p>При заказе от 2 букетов <span class="promo-highlight">скидка 30%</span></p>
+    </div>
+    <div class="promo-card">
+        <p>При заказе от 5000 ₽ <span class="promo-highlight">доставка бесплатно</span></p>
+    </div>
+</div>
+    </section>
+
+       <section id="catalog">
+        <h2>Каталог букетов</h2>
+        <div class="catalog-scroll">
+            <div class="products-row">
+
+                <!-- 1 -->
+                <div class="product-card" data-id="1" data-name="Нежность" data-price="5000">
+                    <img src="букеты/1.jpg" alt="Пионы" onerror="this.src='https://placehold.co/300x300?text=Пионы'">
+                    <h3>Нежность</h3>
+                    <div class="price">5000 ₽</div>
+                    <button class="add-to-cart">В корзину</button>
+                </div>
+
+                <!-- 2 -->
+                <div class="product-card" data-id="2" data-name="Изюминка Мая" data-price="3500">
+                    <img src="букеты/2.jpg" alt="Розы" onerror="this.src='https://placehold.co/300x300?text=Розы'">
+                    <h3>Изюминка Мая</h3>
+                    <div class="price">3500 ₽</div>
+                    <button class="add-to-cart">В корзину</button>
+                </div>
+
+                <!-- 3 -->
+                <div class="product-card" data-id="3" data-name="Королевский Рай" data-price="8000">
+                    <img src="букеты/3.jpg" alt="Лаванда" onerror="this.src='https://placehold.co/300x300?text=Лаванда'">
+                    <h3>Королевский Рай</h3>
+                    <div class="price">8000 ₽</div>
+                    <button class="add-to-cart">В корзину</button>
+                </div>
+
+                <!-- 4 (акция) -->
+                <div class="product-card" data-id="4" data-name="Для Единственной" data-price="3500">
+                    <img src="букеты/4.jpg" alt="Пионы акция" onerror="this.src='https://placehold.co/300x300?text=Пионы+акция'">
+                    <h3>Для Единственной</h3>
+                    <div class="price">3500 ₽ <span class="old-price">6500 ₽</span></div>
+                    <button class="add-to-cart">В корзину</button>
+                </div>
+
+                <!-- 5 (акция) -->
+                <div class="product-card" data-id="5" data-name="Солнечный Восторг" data-price="2500">
+                    <img src="букеты/5.jpg" alt="Подсолнухи" onerror="this.src='https://placehold.co/300x300?text=Подсолнухи'">
+                    <h3>Солнечный Восторг</h3>
+                    <div class="price">2500 ₽ <span class="old-price">5500 ₽</span></div>
+                    <button class="add-to-cart">В корзину</button>
+                </div>
+
+                <!-- 6 (НОВЫЙ) -->
+                <div class="product-card" data-id="6" data-name="Юная Принцесса" data-price="4500">
+                    <img src="букеты/6.jpg" alt="Зелень" onerror="this.src='https://placehold.co/300x300?text=Изумрудная+свежесть'">
+                    <h3>Юная Принцесса</h3>
+                    <div class="price">4500 ₽</div>
+                    <button class="add-to-cart">В корзину</button>
+                </div>
+
+                <!-- 7 (НОВЫЙ) -->
+                <div class="product-card" data-id="7" data-name="Розовый Рай" data-price="5500">
+                    <img src="букеты/7.jpg" alt="Голубые цветы" onerror="this.src='https://placehold.co/300x300?text=Небесное+вдохновение'">
+                    <h3>Розовый Рай</h3>
+                    <div class="price">5500 ₽</div>
+                    <button class="add-to-cart">В корзину</button>
+                </div>
+
+                <!-- 8 (НОВЫЙ) -->
+                <div class="product-card" data-id="8" data-name="Крылья бабочки" data-price="5500">
+                    <img src="букеты/8.jpg" alt="Жёлтые цветы" onerror="this.src='https://placehold.co/300x300?text=Медовый+спас'">
+                    <h3>Крылья бабочки</h3>
+                    <div class="price">5500 ₽</div>
+                    <button class="add-to-cart">В корзину</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- КОРЗИНА -->
+    <section id="cart">
+        <h2>Корзина</h2>
+        <ul id="cartItems"></ul>
+        <p><strong>Итого: <span id="totalPrice">0</span> ₽</strong></p>
+        <button id="orderBtn">Оформить заказ</button>
+    </section>
+
+    <!-- ФОРМА ЗАКАЗА (скрыта сначала) -->
+    <section id="orderForm" style="display:none;">
+        <h2>Оформление заказа</h2>
+        <form id="orderFormElem">
+            <input type="text" id="userName" placeholder="Ваше имя" required>
+            <input type="tel" id="userPhone" placeholder="Телефон" required>
+            <input type="text" id="userAddress" placeholder="Адрес доставки" required>
+            <button type="submit">Отправить заказ</button>
+        </form>
+        <div id="orderMessage"></div>
+    </section>
+</main>
+
+<footer class="footer">
+        <p>От всей души - цветочные букеты с доставкой</p>
+        <p> Нижегородская обл., рп.Ковернино, ул. Хайдукова, 17 <br> +7 (999) 123-45-67 </p>
+        <p>© 2026 Все права защищены</p>
+    </footer>
+
+<script src="javascript.js"></script>
+</body>
+</html>
